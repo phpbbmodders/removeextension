@@ -37,9 +37,15 @@ Still needs deciding:
   groups follow the board's own setup.
 - What to do when an extension group already has one of phpBB's image
   upload icons: replace it, or keep it and skip the Font Awesome icon.
-- phpBB 4.0 support: check which Font Awesome version 4.0 ships, since newer
-  versions renamed these icons, and keep the icon names in one place so each
-  branch can have its own list.
+- phpBB 4.0 support. Checked against phpBB `master`: `attachment.html` has
+  the same `{_file.UPLOAD_ICON}` slot and the event is unchanged, so the PHP
+  side can be shared. 4.0 ships Font Awesome 6.5.1, which dropped the 4.7
+  `-o` names, so the class names need a per-branch list: `fa-regular` plus
+  `fa-file-pdf`, `fa-file-word`, `fa-file-excel`, `fa-file-powerpoint`,
+  `fa-file-image`, `fa-file-audio`, `fa-file-video`, `fa-file-zipper`
+  (was `fa-file-archive-o`), `fa-file-code`, `fa-file-lines` (was
+  `fa-file-text-o`) and `fa-file`. Confirm on a 4.0 board that each has a
+  free regular (outline) version; fall back to `fa-solid` if not.
 - Whether the new purpose deserves a new display name. Changing the
   composer name or vendor is a bigger step, because existing installs then
   need moving over (see phpbbmodders/stopforumspam's `ext.php`).
