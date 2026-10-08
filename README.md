@@ -24,3 +24,7 @@ Go to admin panel -> tab customise -> Manage extensions -> enable Remove Attachm
 2. Delete all files of the extension from ext/rmcgirr83/removeextension
 3. Upload all the new files to the same location
 4. Go to your phpBB-Board > Admin Control Panel > Customise > Manage extensions > Remove Attachment Extension: enable
+
+## TODO
+
+Ideas not yet built, practical and speculative alike: [`docs/TODO.md`](docs/TODO.md).
