@@ -30,10 +30,24 @@ class listener implements EventSubscriberInterface
 		$attachment = $event['attachment'];
 		$block_array = $event['block_array'];
 
-		$pieces = explode('.', $attachment['real_filename']);
-		$new_real_filename = $pieces[0];
-
-		$block_array['DOWNLOAD_NAME'] = $new_real_filename;
+		$block_array['DOWNLOAD_NAME'] = $this->strip_file_extension($attachment['real_filename']);
 		$event['block_array'] = $block_array;
+	}
+
+	/**
+	* Remove only the final extension from a file name
+	*
+	* "annual.report.pdf" becomes "annual.report". Names without an
+	* extension, or with only a leading dot (".htaccess"), are returned
+	* unchanged so the displayed name is never empty.
+	*
+	* @param string $filename	The attachment's real file name
+	* @return string			The file name without its last extension
+	*/
+	public function strip_file_extension($filename)
+	{
+		$last_dot = strrpos($filename, '.');
+
+		return ($last_dot > 0) ? substr($filename, 0, $last_dot) : $filename;
 	}
 }
