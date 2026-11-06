@@ -12,7 +12,8 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3"
+		"php": ">=8.3.36",
+		"composer/installers": "^1.0 || ^2.0"
 	},
 	"require-dev": {
 		"phpbb/epv": "dev-master"
@@ -20,7 +21,7 @@
 	"extra": {
 		"display-name": "Remove Attachment Extension",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.0.1-RC5"
+			"phpbb/phpbb": ">=3.3.19"
         }
 	}
 }
